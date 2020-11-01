@@ -1,12 +1,11 @@
 ---
 layout: default
-title: Notes
 permalink: /notes/
 ---
 
 <div class="Notes">
   Test
-  {% for post in site.notes %}
+  {% for note in site.notes %}
     <article class="post">
 
       <h1><a href="{{ site.baseurl }}{{ note.url }}">{{ note.title }}</a></h1>
