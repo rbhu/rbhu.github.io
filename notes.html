@@ -4,7 +4,7 @@ layout: default
 
 <div class="notes">
   Test
-  {% for note in site.notes %}
+  {% for note in site.categories.notes %}
     <article class="post">
 
       <h1><a href="{{ site.baseurl }}{{ note.url }}">{{ note.title }}</a></h1>
