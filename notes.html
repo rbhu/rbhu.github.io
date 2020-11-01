@@ -5,16 +5,17 @@ permalink: /notes/
 ---
 
 <div class="Notes">
+  Test
   {% for post in site.notes %}
-    <article class="note">
+    <article class="post">
 
-      <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ note.title }}</a></h1>
+      <h1><a href="{{ site.baseurl }}{{ note.url }}">{{ note.title }}</a></h1>
 
       <div class="entry">
         {{ note.excerpt }}
       </div>
 
-      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
+      <a href="{{ site.baseurl }}{{ note.url }}" class="read-more">Read More</a>
     </article>
   {% endfor %}
 </div>

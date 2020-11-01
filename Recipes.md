@@ -10,4 +10,4 @@ permalink: /recipes/
 
 ### Wok Recipes
 [MOB Kitchen Peanut and Coconut Fried Rice](https://www.mobkitchen.co.uk/recipes/peanut-fried-rice)
-[MOB Kitchen Ginger Basil Noodles](https://www.mobkitchen.co.uk/recipes/ginger-basil-noodles) 
+[MOB Kitchen Ginger Basil Noodles](https://www.mobkitchen.co.uk/recipes/ginger-basil-noodles)  
