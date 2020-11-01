@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
+I am a software engineer with an interest in C++, Java and low latency solutions. 
 
 ### More Information
 
