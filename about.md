@@ -4,12 +4,4 @@ title: About
 permalink: /about/
 ---
 
-I am a software engineer with an interest in C++, Java and low latency solutions. 
-
-### More Information
-
-A place to include any other types of information that you'd like to include about yourself.
-
-### Contact me
-
-[email@domain.com](mailto:email@domain.com)
+I am a software engineer with an interest in C++, Java, Javascript and low latency solutions. I have experience in the full stack, and currently work in the financial services industry.
