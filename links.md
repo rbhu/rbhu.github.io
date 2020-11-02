@@ -16,3 +16,6 @@ permalink: /links/
 [Baeldung (Java)](https://www.baeldung.com/)  
 [Fluent CPP](https://www.fluentcpp.com/dailycpp/)  
 [CodePen (Front end)](https://codepen.io/)  
+
+### Good programming notes
+[Damien Rohmer C++ Refresher](https://imagecomputing.net/damien.rohmer/teaching/2018_2019/semester_1/gd_aiavc_refresher_inf/c++/content/000_introduction/index.html)
