@@ -5,7 +5,7 @@ layout: default
 <div class="notes">
   {% for note in site.categories.notes %}
     <div>
-      <h1 font-size="24px"><a font-size="12px" href="{{ site.baseurl }}{{ note.url }}">{{ note.title }}</a></h1>
+      <h3><a href="{{ site.baseurl }}{{ note.url }}">{{ note.title }}</a></h3>
     </div>
   {% endfor %}
 </div>
