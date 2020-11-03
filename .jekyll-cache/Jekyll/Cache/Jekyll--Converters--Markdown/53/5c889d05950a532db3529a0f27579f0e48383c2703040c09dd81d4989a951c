@@ -1,0 +1,17 @@
+I"x<p>Pointers are a fundamental part of C, and are one of the features which gices C the power and flexibility it is known for. There are various reasons pointers are used:</p>
+<ul>
+  <li>it is the only way to express some computations (e.g. )</li>
+  <li>it provides compact and efficient code</li>
+  <li>it provides a very powerful tool</li>
+</ul>
+
+<p>Additionally, C uses pointers explicitly with arrays, structures and functions.</p>
+
+<h4 id="what-is-a-pointer">What is a pointer?</h4>
+<p>A pointer is a variable which contains the address in memory of another variable. We can have a pointer to any variable type.</p>
+
+<p>To get the address of a variable, we use the <code class="highlighter-rouge">&amp;</code> operator. To declare a pointer to a variable, we do the following:</p>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="n">data_type</span><span class="o">&gt;</span> <span class="o">*</span><span class="n">pointer</span><span class="p">;</span>
+</code></pre></div></div>
+<p>To make some more sense of this, lets look at a concrete example.</p>
+:ET

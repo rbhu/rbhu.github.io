@@ -3,9 +3,32 @@ layout: default
 ---
 
 <div class="notes">
-  {% for note in site.categories.notes %}
-    <div>
-      <h5><a href="{{ site.baseurl }}{{ note.url }}">{{ note.title }}</a></h5>
-    </div>
+
+  <h3> C </h3>
+  {% for note in site.notes %}
+  {% if note.path contains 'c_' %}
+  <div>
+    <a href="{{ site.baseurl }}{{ note.url }}">{{ note.title }}</a>
+  </div>
+  {% endif %}
   {% endfor %}
+
+  <h3> C++ </h3>
+  {% for note in site.notes %}
+  {% if note.path contains 'cpp_' %}
+  <div>
+    <a href="{{ site.baseurl }}{{ note.url }}">{{ note.title }}</a>
+  </div>
+  {% endif %}
+  {% endfor %}
+
+  <h3> Data Structures </h3>
+  {% for note in site.notes %}
+    {% if note.path contains 'ds_' %}
+    <div>
+      <a href="{{ site.baseurl }}{{ note.url }}">{{ note.title }}</a>
+    </div>
+    {% endif %}
+  {% endfor %}
+
 </div>

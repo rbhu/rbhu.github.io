@@ -1,6 +1,6 @@
 ---
 layout: note
-title: C++ Templates
+title: Templates
 ---
 
 ### Generic Programming and Templates

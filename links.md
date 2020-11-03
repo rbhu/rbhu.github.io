@@ -23,5 +23,5 @@ permalink: /links/
 [Mauricio Poppe C++ Refresher](https://www.mauriciopoppe.com/notes/computer-science/programming-languages/cpp-refresher/)  
 
 ### Algorithms
-[A* algorithm](https://www.redblobgames.com/pathfinding/a-star/introduction.html)
-[Red Blob Games](https://www.redblobgames.com/)
+[A* algorithm](https://www.redblobgames.com/pathfinding/a-star/introduction.html)  
+[Red Blob Games](https://www.redblobgames.com/)  
