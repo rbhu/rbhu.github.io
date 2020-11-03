@@ -7,3 +7,4 @@ A linked list is a linear collection of data elements whose order isn't given by
 
 ## Variations
 ### Singly linked list
+### Doubly linked list 

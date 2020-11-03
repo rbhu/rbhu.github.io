@@ -1,0 +1,94 @@
+I"´<h3 id="generic-programming-and-templates">Generic Programming and Templates</h3>
+<p>Generic programming is a style of computer programming in which algorithms are written in terms of types <em>to-be-specified-later</em> that are <em>instantiated</em> when needed for specific types.</p>
+
+<p>C++ offers a particularly powerful mechanism, templates, which allow us to write generic functions and classes. The simple idea is to pass the data type as a parameter so that we donâ€™t need to write the same code for different data types.</p>
+
+<p>For example, we may need ement a <code class="highlighter-rouge">sort()</code> function for a range of data types. Rather than writing and maintaing multiple implementations, we can write one <code class="highlighter-rouge">sort()</code> function and pass the data type.</p>
+
+<h4 id="how-it-works">How it works</h4>
+<p>Templates are expanded at compiler time, similar to macros. The compiler does type-checking before template expansion, and then generates a compiled version of the function for each type that the template function is instantiated with. So whilst there is a single copy of the template function in the source code, the compiled code will have many versions.</p>
+
+<h4 id="function-templates">Function Templates</h4>
+<p>Here is an example of a basic template function, which calculates the minimum of two different objects (e.g. <code class="highlighter-rouge">int, double, float, ...</code>):</p>
+
+<pre><code class="language-C++">template &lt;typename T&gt;
+T min (T a, T b)
+{
+  return a &lt; b ? a : b;
+}
+</code></pre>
+<p>To call this function, we use <code class="highlighter-rouge">&lt;...&gt;</code> notation:</p>
+<pre><code class="language-C++">cout &lt;&lt; min&lt;int&gt;(3, 7) &lt;&lt; endl;
+cout &lt;&lt; min&lt;char&gt;('a', 'g') &lt;&lt; endl;
+</code></pre>
+<p>Bear in mind that the above function only works for data types which support the <code class="highlighter-rouge">&lt;</code> operator. This can include user defined types (i.e. classes, structs) as long as the <code class="highlighter-rouge">&lt;</code> has been appropriately overloaded.</p>
+
+<h4 id="class-templates">Class Templates</h4>
+<p>Similarly to function templates, we can use class templates when a class defines something which is independent of the data type. This is particularly useful for classes such as Array, LinkedList, Queue, Stack, etc.</p>
+<pre><code class="language-C++">template &lt;typename T&gt;
+class Array {
+private:
+  T *ptr;
+  int size;
+public:
+  Array(T arr[], int s) {
+    ptr = new T[s];
+    size = s;
+    for (int i = 0; i &lt; size; i++)
+      ptr[i] = arr[i];
+  }
+  void print() {
+    // some code here
+  }
+};
+</code></pre>
+<h4 id="template-specialisation">Template Specialisation</h4>
+<p>It is possible to create a special behaviour of a template for a particular data type. This is useful in situations where a certain data type needs to be treated differently to most other data types.</p>
+<pre><code class="language-C++">template &lt;class T&gt;
+void sort(T arr[], int size) {
+  // code to implement sort for array of type T
+}
+
+template &lt;&gt;
+void sort&lt;char&gt;(char arr[], int size) {
+  // code to implement sort for chars only
+}
+</code></pre>
+<p>In the second block above, we have used template specialisation to implement the template function for arrays of <code class="highlighter-rouge">char</code>s.</p>
+<h4 id="multi-parameter-templates">Multi-parameter Templates</h4>
+<p>Like with normal parameters, it is possible to pass more than one data type as an argumnet to a template. The following example demonstrates this:</p>
+<pre><code class="language-C++">template&lt;class T, class U&gt;
+class A {
+  T x;
+  U y;
+public:
+  A() { cout &lt;&lt; "Constructor called" &lt;&lt; endl; }
+};
+
+int main () {
+  A&lt;char, char&gt; a;
+  A&lt;int, double&gt; b;
+}
+</code></pre>
+
+<h4 id="default-values">Default values</h4>
+<p>Like normal parameters, we can specify default arguments to templates. The following demonstrates this:</p>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlights"><code><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="k">class</span> <span class="nc">U</span> <span class="o">=</span> <span class="kt">char</span><span class="p">&gt;</span>
+<span class="k">class</span> <span class="nc">A</span> <span class="p">{</span>
+<span class="nl">public:</span>
+  <span class="n">T</span> <span class="n">x</span><span class="p">;</span> 
+  <span class="n">U</span> <span class="n">y</span><span class="p">;</span>
+  <span class="n">A</span><span class="p">()</span> <span class="p">{</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Constructor called"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="n">A</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span> <span class="n">a</span><span class="p">;</span> <span class="c1">// This calls A&lt;char, char&gt;</span>
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="non-type-parameters">Non-type parameters</h4>
+
+<h4 id="difference-to-function-overloading">Difference to function overloading</h4>
+
+:ET

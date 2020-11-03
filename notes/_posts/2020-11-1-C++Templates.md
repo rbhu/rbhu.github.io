@@ -16,7 +16,7 @@ Templates are expanded at compiler time, similar to macros. The compiler does ty
 #### Function Templates
 Here is an example of a basic template function, which calculates the minimum of two different objects (e.g. ```int, double, float, ...```):
 
-```C++
+```c++
 template <typename T>
 T min (T a, T b)
 {
@@ -24,7 +24,7 @@ T min (T a, T b)
 }
 ```
 To call this function, we use ```<...>``` notation:
-```C++
+```c++
 cout << min<int>(3, 7) << endl;
 cout << min<char>('a', 'g') << endl;
 ```
@@ -32,7 +32,7 @@ Bear in mind that the above function only works for data types which support the
 
 #### Class Templates
 Similarly to function templates, we can use class templates when a class defines something which is independent of the data type. This is particularly useful for classes such as Array, LinkedList, Queue, Stack, etc.
-```C++
+```c++
 template <typename T>
 class Array {
 private:
@@ -52,7 +52,7 @@ public:
 ```
 #### Template Specialisation
 It is possible to create a special behaviour of a template for a particular data type. This is useful in situations where a certain data type needs to be treated differently to most other data types.
-```C++
+```c++
 template <class T>
 void sort(T arr[], int size) {
   // code to implement sort for array of type T
@@ -66,7 +66,7 @@ void sort<char>(char arr[], int size) {
 In the second block above, we have used template specialisation to implement the template function for arrays of ```char```s.
 #### Multi-parameter Templates
 Like with normal parameters, it is possible to pass more than one data type as an argumnet to a template. The following example demonstrates this:
-```C++
+```c++
 template<class T, class U>
 class A {
   T x;
@@ -83,7 +83,7 @@ int main () {
 
 #### Default values
 Like normal parameters, we can specify default arguments to templates. The following demonstrates this:
-```C++
+```c++
 template<class T, class U = char>
 class A {
 public:

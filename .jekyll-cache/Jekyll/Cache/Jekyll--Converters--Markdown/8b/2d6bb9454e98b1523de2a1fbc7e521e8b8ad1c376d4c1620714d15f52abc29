@@ -1,0 +1,2 @@
+I"Ž<p>A linked list is a linear collection of data elements whose order isnâ€™t given by their physical placement in memory; instead, each element <strong>points</strong> to the next. It is a data structure consisting of a collection of nodes which together represents a sequence. In its most basic form, each node contains just two things: <strong>data</strong> and a <strong>reference</strong>.</p>
+:ET
