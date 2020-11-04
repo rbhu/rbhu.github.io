@@ -17,3 +17,12 @@ To get the address of a variable, we use the ```&``` operator. To declare a poin
 <data_type> *pointer;
 ```
 To make some more sense of this, lets look at a concrete example.
+```c
+int x = 5;
+int* ptr = &x; // ptr stores the address of x
+```
+In this example, the integer variable ```x``` is declared, and ```ptr``` is declared as a pointer to an integer. We assign the address of ```x``` to ptr. To dereference this pointer (to get the value stored at the address), simply use the ```*``` operator on the ptr variable, as follows:
+```c
+cout << *ptr << endl; // outputs 5
+```
+It is important to note that ```*``` is used in two contexts here. In the first instance, it is used to _declare_ a pointer variable, and in the second it is used to _dereference_ the variable.
