@@ -1,7 +1,0 @@
-I"[<p>Pointers are a fundamental part of C, and are one of the features which gices C the power and flexibility it is known for. There are various reasons pointers are used:</p>
-<ul>
-  <li>it is the only way to express some computations (e.g. )</li>
-  <li>it provides compact and efficient code</li>
-  <li>it provides a very powerful tool</li>
-</ul>
-:ET

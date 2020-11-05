@@ -1,0 +1,100 @@
+I"&0<p>A linked list is a linear collection of data elements whose order isn’t given by their physical placement in memory; instead, each element <strong>points</strong> to the next. The benefit of this is that linked lists can store a (hypothetically) indefinite amount of data - as long as your computer has enough memory. This differs from arrays because arrays use contiguous storage. It is a data structure consisting of a collection of nodes which together represents a sequence. In its most basic form, each node contains just two things: <strong>data</strong> and a <strong>reference</strong>.</p>
+
+<h1 id="variations">Variations</h1>
+<h2 id="singly-linked-list">Singly-linked list</h2>
+<p>In a singly-linked list each node stores some data and a pointer to the next node.
+In its simplest form, it can be implemented as follows:</p>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">struct</span> <span class="nc">Node</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">data</span><span class="p">;</span>
+    <span class="n">Node</span><span class="o">*</span> <span class="n">next</span><span class="p">;</span>
+    <span class="n">Node</span> <span class="p">(</span><span class="kt">int</span> <span class="n">data</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span> <span class="o">-&gt;</span> <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">;</span>
+        <span class="k">this</span> <span class="o">-&gt;</span> <span class="n">next</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="k">class</span> <span class="nc">SinglyLinkedList</span> <span class="p">{</span>
+<span class="nl">private:</span>
+    <span class="n">Node</span> <span class="o">*</span><span class="n">head</span><span class="p">,</span> <span class="o">*</span><span class="n">tail</span><span class="p">;</span>
+<span class="nl">public:</span>
+    <span class="n">SinglyLinkedList</span> <span class="p">()</span> <span class="p">{</span> <span class="c1">// construct an empty list</span>
+        <span class="n">head</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+        <span class="n">tail</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+    <span class="p">}</span>
+   
+    <span class="kt">void</span> <span class="n">add</span> <span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>  <span class="c1">// this should add an item to the end of the linked list</span>
+        <span class="n">Node</span> <span class="o">*</span><span class="n">n</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Node</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">head</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">head</span> <span class="o">=</span> <span class="n">n</span><span class="p">;</span>
+            <span class="n">tail</span> <span class="o">=</span> <span class="n">n</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="p">{</span>
+            <span class="n">Node</span> <span class="o">*</span><span class="n">n</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Node</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+            <span class="n">tail</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">n</span><span class="p">;</span>
+            <span class="n">tail</span> <span class="o">=</span> <span class="n">n</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>  
+<span class="p">};</span>
+</code></pre></div></div>
+<p>We can additionally add some useful functions to the SinglyLinkedList class to make it better.</p>
+<h4 id="display">Display</h4>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">displayNodes</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="n">Node</span> <span class="o">*</span><span class="n">node_ptr</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">node_ptr</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">node_ptr</span><span class="o">-&gt;</span><span class="n">data</span> <span class="o">&lt;&lt;</span> <span class="s">" --&gt; "</span><span class="p">;</span>
+        <span class="n">node_ptr</span> <span class="o">=</span> <span class="n">node_ptr</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<h4 id="insert-at-beginning">Insert at beginning</h4>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">insertAtBeginning</span><span class="p">(</span><span class="kt">int</span> <span class="n">newNodeVal</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Node</span> <span class="o">*</span><span class="n">newNode</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Node</span><span class="p">(</span><span class="n">newNodeVal</span><span class="p">);</span>
+    <span class="n">newNode</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+    <span class="n">head</span> <span class="o">=</span> <span class="n">newNode</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<h4 id="insert-at-position">Insert at position</h4>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">insertAtPosition</span><span class="p">(</span><span class="kt">int</span> <span class="n">pos</span><span class="p">,</span> <span class="kt">int</span> <span class="n">newNodeVal</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Node</span> <span class="o">*</span><span class="n">newNode</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Node</span><span class="p">(</span><span class="n">newNodeVal</span><span class="p">);</span>
+    <span class="n">Node</span> <span class="o">*</span><span class="n">prevNodePointer</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">pos</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">prevNodePointer</span> <span class="o">=</span> <span class="n">prevNodePointer</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">newNode</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">prevNodePointer</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+    <span class="n">prevNodePointer</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">newNode</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<h4 id="delete-at-beginning">Delete at beginning</h4>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">deleteAtBeginning</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">Node</span> <span class="o">*</span><span class="n">tmp</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+    <span class="n">head</span> <span class="o">=</span> <span class="n">head</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+    <span class="k">delete</span> <span class="n">tmp</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<h4 id="delete-at-position">Delete at position</h4>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">removePosition</span><span class="p">(</span><span class="kt">int</span> <span class="n">pos</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Node</span> <span class="o">*</span><span class="n">prevNodePointer</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">pos</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">prevNodePointer</span> <span class="o">=</span> <span class="n">prevNodePointer</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">prevNodePointer</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">prevNodePointer</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<h2 id="doubly-linked-list">Doubly-linked list</h2>
+<p>In a doubly-linked list each node contains some data, and points to the next and previous nodes. The implementation of a doubly-linked list is similar to that of a singly-linked list, except the <code class="highlighter-rouge">Node</code> struct also contains a pointer to the previous node:</p>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">struct</span> <span class="nc">Node</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">data</span><span class="p">;</span>
+    <span class="n">Node</span> <span class="o">*</span><span class="n">next</span><span class="p">,</span> <span class="o">*</span><span class="n">prev</span><span class="p">;</span>
+    <span class="n">Node</span> <span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="o">-&gt;</span><span class="n">data</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span>
+        <span class="n">next</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+        <span class="n">prev</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></div>
+<p>The insertion/deletion operations now need to account for the <code class="highlighter-rouge">prev</code> pointer to allow for backwards-traversal. For example, to add an item to the end:</p>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<h2 id="applications">Applications</h2>
+:ET
