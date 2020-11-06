@@ -1,0 +1,4 @@
+I"%<p>A queue is a linear data structure which follows a particular order in which operations are performed. The order is <strong>First In First Out</strong> (FIFO) and is conceptually similar to a queue of people - whoever joined the queue earliest gets served first, and whoever is at the end of the queue has to wait. The difference between stacks and queues is in removing; in a stack, we remove the item most recently added, whereas in a queue we remove the item least recently added.</p>
+
+<p><img src="/images/array.jpg" alt="_config.yml" /></p>
+:ET

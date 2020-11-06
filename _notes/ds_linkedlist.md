@@ -2,7 +2,7 @@
 layout: note
 title: Linked List
 ---
-A linked list is a linear collection of data elements whose order isn't given by their physical placement in memory; instead, each element **points** to the next. The benefit of this is that linked lists can store a (hypothetically) indefinite amount of data - as long as your computer has enough memory. This differs from arrays because arrays use contiguous storage. It is a data structure consisting of a collection of nodes which together represents a sequence. In its most basic form, each node contains just two things: **data** and a **reference**.
+A linked list is a linear collection of data elements whose order isn't given by their physical placement in memory; instead, each element **points** to the next. The benefit of this is that linked lists can store a (hypothetically) indefinite amount of data - as long as your computer has enough memory. This differs from arrays because arrays use contiguous segments of memory, but this isn't required for linked lists. It is a data structure consisting of a collection of nodes which together represents a sequence. In its most basic form, each node contains just two things: **data** and a **reference**.
 
 # Variations
 ## Singly-linked list
@@ -41,7 +41,8 @@ public:
     }  
 };
 ```
-We can additionally add some useful functions to the SinglyLinkedList class to make it better.
+Note that the SinglyLinkedList class has two private properties - head and tail - which point to the first and last node in the list respectively.  
+We can also add some useful functions to the SinglyLinkedList class to give it extra functionality. Some of these functions are detailed below.
 #### Display
 ```cpp
 void displayNodes () {
@@ -121,3 +122,10 @@ void add(int x) {
 
 
 ## Applications
+- Implementation of other data structures (Stacks, Queues)
+- Implementation of graphs (in adjacency list representation)
+- Dynamic memory allocation - using a linked list of free blocks of memory
+- Maintaining a directory of names
+- Arithmetic operations on long integers
+- Manipulation of polynomials by storing constants in the nodes of the linked list
+- Representing sparse matrices (matrices with very few non-zero elements)
